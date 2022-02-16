@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Guess a number </title>
+    </head>
+
+    <body>
+
+        <p id="answer"></p>
+    
+        <script>
+            let givenNumber
+
+            function askNumber() {
+                givenNumber = prompt("Choisis un nombre")
+            }
+            
+            function didIWin() {
+                if (givenNumber == 22) {
+                    document.getElementById("answer").innerHTML = "Bravo ! Vous avez deviné le nombre !"
+                } else if (givenNumber < 22) {
+                    document.getElementById("answer").innerHTML = "Plus grand !"
+                } else {
+                    document.getElementById("answer").innerHTML = "Plus petit !"
+
+                }
+
+            }
+
+            function gamePlay() {
+                askNumber()
+                didIWin()
+            }
+
+            gamePlay()
+
+            
+
+
+        </script>
+
+    </body>
+</html>
