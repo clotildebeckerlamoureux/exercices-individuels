@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Recette carbo</title>
+    </head>
+
+    <body>
+
+        <h1> Recette des pâtes carbo</h1>
+
+        <p id="nombre"></p>
+        <p id="intro"></p>
+        <p id="liste"></p>
+
+        <script>
+            let ingredients = ["Pâtes", "Oeuf", "Sel", "Poivre", "Lardon", "Oignon", "Parmesan"]
+            let number = "Pour la recette il faut " + ingredients.length + " ingrédients."
+            document.getElementById("nombre").innerHTML = number
+            let intro = "Pour la recette il vous faut les ingrédients suivants:"
+            document.getElementById("intro").innerHTML = intro
+            for (let i=1; i<= ingredients.length; i++){
+                let liste = ([i] + " " + ingredients.sort()[i-1])
+                document.getElementById("liste").innerHTML += liste + '<br />'
+            }
+            // propriété/variable sans parenthèses comme length et fonction/méthode comme getElementById avec parenthèses même si rien dedans
+
+        </script>
+        
+    
+    </body>
+</html>
