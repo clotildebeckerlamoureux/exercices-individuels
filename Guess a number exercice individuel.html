@@ -16,21 +16,22 @@
                 givenNumber = prompt("Choisis un nombre")
             }
             
-            function didIWin() {
-                if (givenNumber == 22) {
-                    document.getElementById("answer").innerHTML = "Bravo ! Vous avez deviné le nombre !"
-                } else if (givenNumber < 22) {
-                    document.getElementById("answer").innerHTML = "Plus grand !"
+            function didIWin() {    
+                if (givenNumber == 22) { 
+                    return true
                 } else {
-                    document.getElementById("answer").innerHTML = "Plus petit !"
-
+                    return false
                 }
-
             }
 
             function gamePlay() {
                 askNumber()
-                didIWin()
+                if (didIWin() == true) {
+                    document.getElementById("answer").innerHTML = "Bien joué !"
+                } else if (didIWin() == false){
+                    document.getElementById("answer").innerHTML = "Perdu !"
+                    askNumber()
+                }
             }
 
             gamePlay()
