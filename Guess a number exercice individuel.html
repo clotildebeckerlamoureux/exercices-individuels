@@ -26,11 +26,11 @@
 
             function gamePlay() {
                 askNumber()
-                if (didIWin() == true) {
-                    document.getElementById("answer").innerHTML = "Bien joué !"
-                } else if (didIWin() == false){
-                    document.getElementById("answer").innerHTML = "Perdu !"
-                    askNumber()
+                if (didIWin()) { //comme la valeur de didIWin est déjà un booléen pas besoin de préciser ==true ou ==false cela fait une redondance
+                    document.getElementById("answer").innerHTML += "Bien joué !"
+                } else {
+                    console.log("Essaye encore !") // console.log se joue avant gamePlay à la différence de document.get ... 
+                    gamePlay()
                 }
             }
 
