@@ -8,18 +8,19 @@
     <body>
 
         <p id="answer"></p>
+        <p id="wrong"></p>
     
         <script>
             let givenNumber
             let takenNumber
             let newTry
+            let tries = 0
 
             function giveNumber() {
                 takenNumber = prompt("Choisis un nombre entre 0 et 50", "0 < ? < 50")
                 if (takenNumber < 0 || takenNumber > 50){
                     newTry = prompt("Choisis-en un autre")
-                }
-                
+                }  
             }
 
             function askNumber() {
@@ -34,12 +35,20 @@
                 }
             }
 
+            function numberTry() {
+                let wrongAnswer = 
+                document.getElementById("wrong").innerHTML += "Essaye encore !" + '<br />'
+                tries = tries + 1
+                document.getElementById("wrong").innerHTML += "Nombre de tentatives: " + tries + '<br />' + '<br />'
+                alert("Perdu !")
+            }
+
             function gamePlay() {
                 askNumber()
                 if (didIWin()) { //comme la valeur de didIWin est déjà un booléen pas besoin de préciser ==true ou ==false cela fait une redondance
-                    document.getElementById("answer").innerHTML += "Bien joué !"
+                    document.getElementById("answer").innerHTML = "Bien joué !"
                 } else {
-                    console.log("Essaye encore !") // console.log se joue avant gamePlay à la différence de document.get ... 
+                    numberTry()
                     gamePlay()
                 }
             }
