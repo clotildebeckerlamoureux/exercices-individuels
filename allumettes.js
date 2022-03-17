@@ -29,7 +29,7 @@ function matchToRemove() {
         //let victoire = 
         alert("Tu as gagné !")
         match = 50
-        matchToRemove()
+        //matchToRemove()
         
     }
 }
