@@ -1,26 +1,41 @@
 let match = 50
-let playerx = prompt("Combien de joueurs ?")
+let playerx = parseInt(prompt("Combien de joueurs ?"))
 
 function matchToRemove() {
     while (match > 0) {
         for (i=1; i <= playerx; i++) {
             let player = parseInt(prompt("Joueur " + i + "\nChoisis un nombre d'allumettes à retirer \nNombre d'allumettes restantes : " + match))
-            if (player < 1 || player > 6) {
-                alert("Choisis un nombre entre 1 et 6")
-                matchToRemove()
-            }
-            else if (match < player) {
-                alert("Choisis un nombre plus petit")
-                matchToRemove()
-            } else
-                match = match - player
-                console.log(match)
-        }
-            if (match === 0) {
-                alert("Bravo joueur " + (i-1) +", tu as gagné !")
-                // match = 50
-                // matchToRemove()
-        
+            let exitLoop = true
+            while (exitLoop) {
+                switch (true)  {
+                    case isNaN(player):{
+                        alert("Choisis un nombre")
+                        exitLoop = false
+                        i = i - 1
+                        break
+                    } case player < 1 || player > 6 :{
+                        alert("Choisis un nombre entre 1 et 6")
+                        exitLoop = false
+                        i = i - 1
+                        break
+                    } case match < player : {
+                        alert("Choisis un nombre plus petit")
+                        exitLoop = false
+                        i = i - 1
+                        break
+                    } case player >= 1 && player <= 6 && match >= player: {
+                        match = match - player
+                        console.log(match)
+                        exitLoop = false
+                        continue
+                    } case match === 0 : {
+                        alert("Bravo joueur " + (i-1) +", tu as gagné !")
+                        break
+                        // match = 50
+                        // matchToRemove()
+                    }    
+                }
+            }    
         }
     }
 }
